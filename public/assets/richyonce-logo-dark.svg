@@ -1,0 +1,14 @@
+<svg width="120" height="120" viewBox="0 0 100 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ryGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2D1"/>
+      <stop offset="35%" stop-color="#E5C07B"/>
+      <stop offset="70%" stop-color="#C99F54"/>
+      <stop offset="100%" stop-color="#E5C07B"/>
+    </linearGradient>
+  </defs>
+  <path d="M22 20 L44 54 L44 92" stroke="url(#ryGold)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M66 20 L44 54" stroke="url(#ryGold)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M44 32 H68 C78 32 84 38 84 48 C84 58 78 64 68 64 H44" stroke="url(#ryGold)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M62 64 L84 92" stroke="url(#ryGold)" stroke-width="4.5" stroke-linecap="round"/>
+</svg>

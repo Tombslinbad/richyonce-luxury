@@ -1,0 +1,6 @@
+{
+  "name": "Richyonce Clothing - Luxury African Menswear & Digital Atelier",
+  "description": "Contemporary African luxury, bespoke menswear, refined tailoring, cultural heritage, and modern sophistication.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

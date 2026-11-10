@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Cinzel", Georgia, serif;
+
+  --color-emerald-deep: #0A231C;
+  --color-emerald-dark: #061611;
+  --color-emerald-glow: #0F382D;
+  --color-obsidian: #0D0D0D;
+  --color-obsidian-surface: #141716;
+  --color-gold-champagne: #E5C07B;
+  --color-gold-hover: #F0D597;
+  --color-gold-muted: #B89758;
+  --color-chalk: #FAFAFA;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #081713;
+    color: #FAFAFA;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #081713;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1C332B;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E5C07B;
+}
+
+/* Subtle gold glow & glass */
+.gold-glow {
+  box-shadow: 0 0 25px rgba(229, 192, 123, 0.15);
+}
+
+.gold-glow-hover:hover {
+  box-shadow: 0 0 35px rgba(229, 192, 123, 0.28);
+}
+
+.glass-panel {
+  background: rgba(13, 23, 20, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(229, 192, 123, 0.12);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 192, 123, 0.2);
+}
+
+/* ScrollTrigger Reveal Utilities */
+.scroll-trigger-node {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+@keyframes goldPulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(229, 192, 123, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(229, 192, 123, 0.35);
+  }
+}
+
+.gold-pulse-active {
+  animation: goldPulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.85;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.15s ease-out forwards;
+}
+
+/* Hardware accelerated, zero-lag image rendering */
+img {
+  content-visibility: auto;
+  image-rendering: -webkit-optimize-contrast;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Scroll reveal initial state - zero lag immediate visibility */
+.scroll-reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.15s ease-out;
+}
+
+.scroll-reveal.animate-fadeIn {
+  opacity: 1;
+  transform: none;
+}
+
+/* Touch momentum scrolling for modals and horizontally scrollable areas */
+.overflow-y-auto,
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Luxury Gold Skeleton Shimmer */
+@keyframes skeletonShimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-skeleton-shimmer {
+  animation: skeletonShimmer 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Staggered Cinematic Hero Reveal Animations */
+@keyframes heroTextReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes heroMediaReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(32px) scale(0.96);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+.animate-hero-reveal {
+  opacity: 0;
+  animation: heroTextReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+.animate-hero-media {
+  opacity: 0;
+  animation: heroMediaReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+.hero-delay-1 { animation-delay: 100ms; }
+.hero-delay-2 { animation-delay: 240ms; }
+.hero-delay-3 { animation-delay: 400ms; }
+.hero-delay-4 { animation-delay: 560ms; }
+.hero-delay-5 { animation-delay: 700ms; }
+.hero-delay-6 { animation-delay: 820ms; }
+.hero-delay-7 { animation-delay: 940ms; }
+.hero-delay-8 { animation-delay: 1080ms; }
+.hero-delay-media { animation-delay: 350ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-trigger-node,
+  .animate-hero-reveal,
+  .animate-hero-media,
+  .animate-fadeIn,
+  .scroll-reveal {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    animation: none !important;
+  }
+}
+
